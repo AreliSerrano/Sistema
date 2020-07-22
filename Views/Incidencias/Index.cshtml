@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Sistema_Incidencias.Models.Incidencia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaGeneracion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Solucion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado.NombreCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Responsable.Nombre)
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaGeneracion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Solucion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado.NombreCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Responsable.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
